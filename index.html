@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Test 3</title>
+        <link href="style.css" rel="stylesheet">
+        <script type="text/javascript">
+            if(Notification)
+              {
+                //alert("Ok");
+                    Notification.requestPermission();
+                    function Test()
+                    {
+                        var title = document.getElementById('title-txt');
+                        var text = document.getElementById('txt');
+                        var a = new Notification( title.value, 
+                        {
+                            body: text.value,    
+                            icon: './img/message.png'
+                        });
+                        a.onshow = function()
+                        {
+                            setTimeout(function()
+                            {
+                                a.close();
+                            },10000);    
+                        }
+                    }
+                    
+                    function arithmetic_fn()
+                    {
+                       var a1 = document.getElementById('value1').value, a2 = document.getElementById('value2').value;
+                        var a3 = a1*a2;
+                        var are = document.getElementById('arithmetic').value;
+                        if (a1 == 0 || a2 == 0 || are == 0)
+                            {
+                                Notification.requestPermission();          
+                                var a = new Notification('Error', 
+                                {
+                                    body: 'Incorrect entered data.',    
+                                    icon: './img/error.png'
+                                });
+                                a.onshow = function()
+                                {
+                                    setTimeout(function()
+                                    {
+                                        a.close();
+                                    },10000);    
+                                }
+                            }
+                        else
+                            {
+                                 if (are == a3)
+                                {
+                                    Notification.requestPermission();
+                                    var a = new Notification('Congratulations !!!', 
+                                    {
+                                        body: 'Your answer is correct.',    
+                                        icon: './img/galochka.png'
+                                    });
+                                    a.onshow = function()
+                                    {
+                                        setTimeout(function()
+                                        {
+                                            a.close();
+                                        },10000);    
+                                    }
+                                }
+                                else 
+                                    {
+                                        Notification.requestPermission();          
+                                        var a = new Notification('Error', 
+                                        {
+                                            body: 'Your answer is not correct.',    
+                                            icon: './img/error.png'
+                                        });
+                                        a.onshow = function()
+                                        {
+                                            setTimeout(function()
+                                            {
+                                                a.close();
+                                            },10000);    
+                                        }
+                                    }
+                            }
+                    }
+                }
+            else
+                {
+                    alert("Error brouwse API");
+                }
+            
+        </script>
+      </head>
+      <body>
+        <div id="all_blocks">
+             <div id="add_to_maseg">
+                 <form action="">
+                     <button onclick="Test()">Add message</button>
+                      <input type="text" id="title-txt">
+                      <textarea name="" cols="30" rows="10" id="txt"></textarea>
+                 </form>
+             </div>
+              <div id="add_to_arithmetic">
+                 <form action="">
+                    <label for="">test your arithmetic skills.</label>
+                     <button onclick="arithmetic_fn()" id="ch">check</button>
+                     <input type="text" id="value1">
+                     <label for="">*</label>
+                     <input type="text" id="value2">
+                     <label for="">=</label>
+                      <input type="text" id="arithmetic">
+                 </form>
+             </div>
+        </div>
+      </body>
+</html>

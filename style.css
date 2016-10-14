@@ -1,0 +1,35 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+#add_to_maseg, #add_to_arithmetic
+{
+    margin-top: 10px;
+    padding: 5%;
+    border: 2px solid #000;
+    border-radius:10px;
+}
+#all_blocks 
+{
+    width: 30%;
+    display: block;
+    margin: auto;
+}
+#add_to_maseg button, #add_to_maseg input, #add_to_maseg textarea, #add_to_arithmetic button, #add_to_arithmetic input, #add_to_arithmetic label
+{
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+    
+}
+#add_to_maseg input, #add_to_maseg textarea, #add_to_arithmetic input, #add_to_arithmetic label
+{
+    width: 80%;
+}
+#add_to_arithmetic label
+{
+    text-align: center;
+    font-family: Tahoma;
+    font-weight: bold;
+}
